@@ -1,34 +1,35 @@
 ---
-title: "Docker"
-date: 2020-08-30T23:03:23+08:00
+title: "Ubuntu Docker"
+date: 2021-02-12T12:20:42+08:00
 ---
 
-# docker
+# ubuntu20.04-Docker
 
-## 操作系统: deepin
+1. 选择ubuntu镜像为中国镜像
 
-安装
+2. 安装需要的包
 
-安装docker
+`sudo apt-get install apt-transport-https ca-certificates software-properties-common curl`
+
+3. 添加GPG密钥,以Docker-ce 中国科技大学软件源
+
+`curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -`
+
+```shell
+sudo add-apt-repository "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
+$(lsb_release -cs) stable"
+```
+
+4. 安装docker
+
 `sudo apt-get install docker-ce`
-curl
 
-下载docker-compose(非必要操作)
-```
-sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-```
-加入权限
-```
-sudo chmod +x /usr/local/bin/docker-compose
-```
-加入软链接
-```
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-```
-加入用户组
-```
-sudo su
-sudo 用户
+5. 添加用户组
+
+```shell
+sudo gpasswd -a ${USER} docker
+newgrp - docker
+sudo service docker restart
 ```
 
 ## 学习

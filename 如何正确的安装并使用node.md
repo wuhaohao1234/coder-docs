@@ -24,12 +24,18 @@ date: 2020-10-01T11:08:38+08:00
 
 ``` shell
 git clone git://github.com/creationix/nvm.git ~/nvm
+git clone git://gitee.com/mirrors/nvm.git ~/nvm
 
 command -v nvm
 
 echo "source ~/nvm/nvm.sh" >> ~/.bashrc
 
 source ~/.bashrc
+
+这里可加入nvm中node源
+
+node_mirror=https://npm.taobao.org/mirrors/node/
+
 
 nvm install node
 
